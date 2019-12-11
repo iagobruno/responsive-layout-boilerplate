@@ -30,3 +30,42 @@ a:hover { text-decoration: underline; }
   margin: 0 auto;
 }
 
+header {
+  background: white;
+  border-bottom: 1px solid var(--gray-color);
+}
+header > .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--default-gap);
+  padding-bottom: var(--default-gap);
+}
+header h1 {
+  font-size: 24px;
+}
+.github-link {
+  display: flex;
+  align-items: center;
+}
+
+nav {
+  background-color: var(--gray-color);
+  max-width: 100vw;
+  overflow-x: auto;
+}
+nav .container {
+  min-width: fit-content;
+  padding: 0 calc(var(--container-horizontal-gap) - var(--default-gap));
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+nav li a {
+  padding: 10px var(--default-gap);
+  display: block;
+  white-space: nowrap;
+}
