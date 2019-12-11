@@ -105,6 +105,36 @@ article::after {
   width: 70%;
   display: block;
 }
+
+.columns {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.columns__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  margin-bottom: 60px;
+}
+.columns__item::before {
+  content: '';
+  background-color: var(--gray-color);
+  display: block;
+  height: 75px;
+  width: 75px;
+  margin-bottom: 22px;
+}
+.columns__item::after {
+  content: '';
+  background-color: var(--gray-color);
+  display: block;
+  height: 16px;
+  width: 80%;
+}
 @media (max-width: 500px) {
   :root {
     --container-horizontal-gap: var(--default-gap);
