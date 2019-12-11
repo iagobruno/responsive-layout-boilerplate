@@ -69,3 +69,64 @@ nav li a {
   display: block;
   white-space: nowrap;
 }
+
+section {
+  padding: calc(var(--default-gap) + 5px) 0;
+}
+
+section h2 {
+  margin-bottom: var(--default-gap);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: var(--default-gap);
+  grid-row-gap: calc(var(--default-gap) + 10px);
+}
+
+article {
+  position: relative;
+}
+article::before {
+  content: '';
+  background-color: var(--gray-color);
+  border-radius: 4px;
+  display: block;
+  width: 100%;
+  padding-top: 56%;
+  margin-bottom: calc(var(--default-gap) - 5px);
+}
+article::after {
+  content: '';
+  background-color: var(--gray-color);
+  border-radius: 4px;
+  height: 16px;
+  width: 70%;
+  display: block;
+}
+@media (max-width: 500px) {
+  :root {
+    --container-horizontal-gap: var(--default-gap);
+  }
+
+  section#grid-and-carousel .grid {
+    display: grid;
+    grid-template-columns: initial;
+    grid-auto-flow: column;
+    grid-gap: var(--default-gap);
+    align-items: flex-start;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    padding: 0 var(--default-gap);
+    margin: 0 calc(0px - var(--default-gap));
+  }
+
+  section#grid-and-carousel article {
+    width: 76vw;
+    scroll-snap-align: center;
+  }
+  .github-link span {
+    display: none;
+  }
+}
