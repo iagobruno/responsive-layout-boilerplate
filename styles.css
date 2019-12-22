@@ -1,7 +1,6 @@
 :root {
   --gray-color: #DDD;
   --default-gap: 20px;
-  --container-horizontal-gap: calc(var(--default-gap) + 10px);
 }
 
 * {
@@ -25,6 +24,7 @@ a {
 a:hover { text-decoration: underline; }
 
 .container {
+  --container-horizontal-gap: calc(var(--default-gap) + 10px);
   max-width: 1200px;
   padding: 0 var(--container-horizontal-gap);
   margin: 0 auto;
@@ -40,6 +40,14 @@ header > .container {
   justify-content: space-between;
   padding-top: var(--default-gap);
   padding-bottom: var(--default-gap);
+}
+header .menu-icon {
+  font-size: 30px;
+  padding: 8px 10px;
+  margin-right: 8px;
+  line-height: 20px;
+  cursor: pointer;
+  display: none;
 }
 header h1 {
   font-size: 24px;
@@ -156,8 +164,49 @@ article::after {
 }
 
 @media (max-width: 500px) {
-  :root {
+  .container {
     --container-horizontal-gap: var(--default-gap);
+  }
+
+  header .menu-icon {
+    display: block;
+  }
+
+  nav {
+    background: white;
+    box-shadow: 2px 0 6px 2px rgba(0,0,0,.12);
+    position: fixed;
+    padding: 20px 0;
+    height: 100vh;
+    width: 75vw;
+    max-width: 340px;
+    transform: translateX(calc(-100% - 6px));
+    transition: transform 300ms cubic-bezier(0.4, 0.0, 0.2, 1);
+    top: 0;
+    left: 0;
+    z-index: 100;
+    overflow-y: scroll;
+    overscroll-behavior-y: contain;
+  }
+  .nav-backdrop {
+    display: none;
+    background: rgba(0,0,0,.12);
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    z-index: 99;
+    top: 0;
+    left: 0;
+  }
+  nav .container {
+    flex-direction: column;
+    align-items: start;
+  }
+  nav.visible {
+    transform: translateX(0%);
+  }
+  nav.visible + .nav-backdrop {
+    display: block;
   }
 
   section#grid-and-carousel .grid {

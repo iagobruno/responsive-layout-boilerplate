@@ -9,7 +9,9 @@
 
   <header>
     <div class="container">
+      <div class="menu-icon">&equiv;</div>
       <h1>responsive-layout-boilerplate</h1>
+      <div style="flex:1"></div>
       <a href="https://github.com/iagobruno/responsive-layout-boilerplate" class="github-link">
         <span>View source on </span>
         <img src="https://github.githubassets.com/pinned-octocat.svg" style="width: 32px; margin-left: 8px">
@@ -23,6 +25,19 @@
         <li><a href="#content-and-sidebar">Content and Sidebar</a></li>
       </ul>
     </nav>
+    <div class="nav-backdrop"></div>
+    <script>
+      const menuIcon = document.querySelector('.menu-icon')
+      const navElement = document.querySelector('nav')
+      const navBackdrop = document.querySelector('.nav-backdrop')
+
+      menuIcon.addEventListener('click', () => {
+        navElement.classList.add('visible')
+      })
+      navBackdrop.addEventListener('click', () => {
+        navElement.classList.remove('visible')
+      })
+    </script>
   </header>
 
   <section id="grid-and-carousel">
